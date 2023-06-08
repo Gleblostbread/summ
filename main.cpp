@@ -79,11 +79,11 @@ int main(){
     }
 
     a1 = (n*lnxy_ - lnx_*lny_)/(n*lnxx_ - lnx_*lnx_);
-    a = exp(lny_/(float)n - a1*lnx_/(float)n);
+    a = -1*exp(lny_/(float)n - a1*lnx_/(float)n);
 
-    cout << "Функциональная зависимость имеет вид: y=" <<a << "x^" << a1<< endl;
+    cout << "Функциональная зависимость имеет вид: y=" <<a << "x^" << a1 << "+22" << endl;
     for (int i = 0; i < n; i++){
-        sse += (y[i] - a*pow(x[i], a1))*(y[i] - a*pow(x[i], a1));
+        sse += (y[i] - a*pow(x[i], a1)-22)*(y[i] - a*pow(x[i], a1)-22);
     }
     mae = sse / n;
     cout << "Суммарная квадратичная ошибка для линейной регрессии: " << sse << endl;
